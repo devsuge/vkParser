@@ -1,5 +1,6 @@
 import requests.exceptions
 
+import numpy
 import settings
 import report
 import vk_api_only

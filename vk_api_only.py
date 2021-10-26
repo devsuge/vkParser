@@ -10,6 +10,7 @@ def get_friends(token, u_id):
     response = requests.get(METHOD_URL,
                             {'access_token': token,
                              'user_id': u_id,
+                             'order': 'name',
                              'fields': 'nickname, country, city, bdate, sex',
                              'v': API_VERSION}).json()
 
@@ -28,6 +29,7 @@ def get_friends(token, u_id):
             raw_data += requests.get(METHOD_URL,
                                      {'access_token': token,
                                       'user_id': u_id,
+                                      'order': 'name',
                                       'fields': 'nickname, country, city, bdate, sex',
                                       'offset': i * 5000,
                                       'v': API_VERSION}).json().get('response', {}).get('items', [])
