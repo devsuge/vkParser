@@ -1,3 +1,4 @@
+import numpy
 import numpy as np
 import pandas as pd
 
@@ -18,19 +19,23 @@ def full_refactor(data_df):
 
 
 def refactor_sex(sex):
-    if sex == 1:
-        return 'Female'
-    if sex == 2:
-        return 'Male'
+    if isinstance(sex, int):
+        if sex == 1:
+            return 'Female'
+        if sex == 2:
+            return 'Male'
 
-    return 'Unknown'
+        return 'Unknown'
+    else:
+        raise ValueError('Invalid se format, expected <int>')
 
 
 def refactor_dict_location(dict_location):
     if isinstance(dict_location, dict):
-        return dict_location.get('title')
-
-    return 'Unknown'
+        return dict_location.get('title', 'Unknown')
+    elif isinstance(dict_location, type(numpy.nan)):
+        return 'Unknown'
+    raise ValueError('Invalid se format, expected <dict>')
 
 
 def refactor_date(date):
@@ -55,8 +60,10 @@ def refactor_date(date):
         year_int = int(year)
         if year_int < 1:
             raise ValueError('The year should be greater than 0')
-    else:
+    elif isinstance(date, type(numpy.nan)):
         return '0001-01-01'
+    else:
+        raise ValueError('Invalid se format, expected <str>')
 
     return f'{year}-{month}-{day}'
 
