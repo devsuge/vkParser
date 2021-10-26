@@ -45,11 +45,11 @@ pip3 install -r requirements.txt
 
 Список файлов:
 
-1. [Файл настроек](##settings)
-2. [Файл работы с API](##vk_api_only)
-3. [Файл обработки отчета](##report)
+1. [Файл настроек](##Settings)
+2. [Файл работы с API](##Vk_api_only)
+3. [Файл обработки отчета](##Report)
 
-## settings
+## Settings
 
 Файл `settings.py` имеет один метод `get_settings()`, который возвращает первоначальные настройки приложения:
 
@@ -58,7 +58,7 @@ pip3 install -r requirements.txt
 3. Формат файла: `format`
 
 
-## vk_api_only
+## Vk_api_only
 
 Файл `vk_api_only.py` имеет один метод `get_fiends(token, u_id)`, который возвращает необработанный список данных друзей пользователя с полями:
 
@@ -68,7 +68,7 @@ pip3 install -r requirements.txt
 4. Указанная дата рождения пользователя: `bdate`
 5. Указанный пол пользователя: `sex`
 
-## report
+## Report
 
 Файл `report.py` ключает в себя методы обработки сырой информации из Vk_API и формирования отчета в файл:
 Список методов:
