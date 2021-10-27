@@ -4,8 +4,8 @@ import settings
 import report
 import vk_api_only
 
-if __name__ == '__main__':
 
+def main():
     print('***SETTINGS***')
     report_settings = settings.get_settings()
     print('***SETTINGS***\n')
@@ -36,3 +36,7 @@ if __name__ == '__main__':
     except ValueError as value_error:
         print(f'The report cannot be received for the following reason: {value_error}')
     print('DONE\n')
+
+
+if __name__ == '__main__':
+    main()
